@@ -90,7 +90,7 @@ namespace ManiXButton
 
         #region Custom Properties
 
-        Color textColor = Color.White;
+        Color textColor = Color.Black;
         Color selectedTextColor = Color.FromArgb(30, 57, 91);
         Color OverTextColor = Color.FromArgb(30, 57, 91);
         Color borderColor = Color.FromArgb(31, 72, 161);
@@ -260,7 +260,7 @@ namespace ManiXButton
 
             // Button Text Color
 
-            this.TextColor = Color.White;
+            this.TextColor = Color.Black;
             this.SelectedTextColor = Color.FromArgb(30, 57, 91);
             this.HoverTextColor = Color.FromArgb(30, 57, 91);
 
@@ -307,30 +307,30 @@ namespace ManiXButton
 
             // Button Text Color
 
-            this.TextColor = Color.White;
+            this.TextColor = Color.Black;
             this.SelectedTextColor = Color.FromArgb(30, 57, 91);
             this.HoverTextColor = Color.FromArgb(30, 57, 91);
 
             // Button normal color
 
-            this.ButtonNormalColor1 = Color.FromArgb(42, 126, 43);
+            this.ButtonNormalColor1 = Color.FromArgb(139,238,142);
             this.ButtonNormalColor2 = Color.FromArgb(94, 184, 67);
-            this.ButtonNormalColor3 = Color.FromArgb(42, 126, 43);
+            this.ButtonNormalColor3 = Color.FromArgb(139, 238, 142);
             this.ButtonNormalColor4 = Color.FromArgb(94, 184, 67);
 
             // Button mouseover color
 
-            this.ButtonMouseOverColor1 = Color.FromArgb(236, 199, 87);
-            this.ButtonMouseOverColor2 = Color.FromArgb(252, 243, 215);
-            this.ButtonMouseOverColor3 = Color.FromArgb(249, 225, 137);
-            this.ButtonMouseOverColor4 = Color.FromArgb(251, 249, 224);
+            this.ButtonMouseOverColor1 = Color.FromArgb(139, 238, 142);
+            this.ButtonMouseOverColor2 = Color.FromArgb(94, 184, 67);
+            this.ButtonMouseOverColor3 = Color.FromArgb(139, 238, 142);
+            this.ButtonMouseOverColor4 = Color.FromArgb(94, 184, 67);
 
             // Button selected color
 
-            this.ButtonSelectedColor1 = Color.FromArgb(236, 199, 87);
-            this.ButtonSelectedColor2 = Color.FromArgb(252, 243, 215);
-            this.ButtonSelectedColor3 = Color.FromArgb(255, 229, 117);
-            this.ButtonSelectedColor4 = Color.FromArgb(255, 216, 107);
+            this.ButtonSelectedColor1 = Color.FromArgb(139, 238, 142);
+            this.ButtonSelectedColor2 = Color.FromArgb(94, 184, 67);
+            this.ButtonSelectedColor3 = Color.FromArgb(139, 238, 142);
+            this.ButtonSelectedColor4 = Color.FromArgb(94, 184, 67);
         }
 
         public override string ToString()
@@ -354,30 +354,31 @@ namespace ManiXButton
 
             // Button Text Color
 
-            this.TextColor = Color.White;
+            this.TextColor = Color.Black;
             this.SelectedTextColor = Color.FromArgb(30, 57, 91);
             this.HoverTextColor = Color.FromArgb(30, 57, 91);
 
             // Button normal color
+           
 
-            this.ButtonNormalColor1 = Color.FromArgb(227, 77, 45);
-            this.ButtonNormalColor2 = Color.FromArgb(245, 148, 64);
-            this.ButtonNormalColor3 = Color.FromArgb(227, 77, 45);
-            this.ButtonNormalColor4 = Color.FromArgb(245, 148, 64);
+            this.ButtonNormalColor1 = Color.FromArgb(245, 148, 64);
+            this.ButtonNormalColor2 = Color.FromArgb(227, 77, 45);
+            this.ButtonNormalColor3 = Color.FromArgb(245, 148, 64);
+            this.ButtonNormalColor4 = Color.FromArgb(227, 77, 45);
 
             // Button mouseover color
 
-            this.ButtonMouseOverColor1 = Color.FromArgb(236, 199, 87);
-            this.ButtonMouseOverColor2 = Color.FromArgb(252, 243, 215);
-            this.ButtonMouseOverColor3 = Color.FromArgb(249, 225, 137);
-            this.ButtonMouseOverColor4 = Color.FromArgb(251, 249, 224);
+            this.ButtonMouseOverColor1 = Color.FromArgb(245, 148, 64);
+            this.ButtonMouseOverColor2 = Color.FromArgb(227, 77, 45);
+            this.ButtonMouseOverColor3 = Color.FromArgb(245, 148, 64);
+            this.ButtonMouseOverColor4 = Color.FromArgb(227, 77, 45);
 
             // Button selected color
 
-            this.ButtonSelectedColor1 = Color.FromArgb(236, 199, 87);
-            this.ButtonSelectedColor2 = Color.FromArgb(252, 243, 215);
-            this.ButtonSelectedColor3 = Color.FromArgb(255, 229, 117);
-            this.ButtonSelectedColor4 = Color.FromArgb(255, 216, 107);
+            this.ButtonSelectedColor1 = Color.FromArgb(245, 148, 64);
+            this.ButtonSelectedColor2 = Color.FromArgb(227, 77, 45);
+            this.ButtonSelectedColor3 = Color.FromArgb(245, 148, 64);
+            this.ButtonSelectedColor4 = Color.FromArgb(227, 77, 45);
         }
 
         public override string ToString()
@@ -401,7 +402,7 @@ namespace ManiXButton
 
             // Button Text Color
 
-            this.TextColor = Color.White;
+            this.TextColor = Color.Black;
             this.SelectedTextColor = Color.FromArgb(30, 57, 91);
             this.HoverTextColor = Color.FromArgb(30, 57, 91);
 

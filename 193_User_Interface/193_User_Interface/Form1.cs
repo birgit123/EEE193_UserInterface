@@ -16,13 +16,33 @@ namespace _193_User_Interface
 {
     public partial class Form1 : Form
     {
+        //private SerialPort port;
+
         public Form1()
         {
             InitializeComponent();
-            FormBorderStyle = FormBorderStyle.None;
-            WindowState = FormWindowState.Maximized;
+           // SerialPort(); //call function for serial port control 
+            //Read(); //call to function for reading in serial data 
+                     
+            FormBorderStyle = FormBorderStyle.None;  
+            WindowState = FormWindowState.Maximized;    //Maximize the form window
+
         }
 
+       // private void SerialPort()
+       // {
+       //     port = new SerialPort("COM4", 9600, Parity.None, 8, StopBits.One);
+
+            //try
+           // {
+
+
+           // }
+
+
+
+       // }
+            
         private void gmap_Load_1(object sender, EventArgs e)
         {
             // Initialize map:
@@ -44,6 +64,18 @@ namespace _193_User_Interface
 
         private void xButton1_Click_1(object sender, EventArgs e)
         {
+            
+
+            if (xButton1.Text == "Not Connected")
+            {
+                xButton1.Text = "Connected";
+                xButton1.Theme = ManiXButton.Theme.MSOffice2010_Green;
+            }          
+           else if(xButton1.Text == "Connected")
+            {
+                xButton1.Text = "Not Connected";
+                xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;          
+            }
 
         }
     }
