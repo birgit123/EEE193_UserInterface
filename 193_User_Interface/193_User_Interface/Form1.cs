@@ -26,21 +26,67 @@ namespace _193_User_Interface
 
         }
 
-        private void gMapControl1_Load(object sender, EventArgs e)
+       /* private void gMapControl1_Load(object sender, EventArgs e)
         {
             // Initialize map:
-            gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
+            gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
-            gMapControl1.Position = new PointLatLng(38.5602, -121.4241);
-            gMapControl1.Zoom = 15;
+            gmap.Position = new PointLatLng(38.5602, -121.4241);
+            gmap.Zoom = 15;
 
-            gMapControl1.ShowCenter = false; //don't display red cross in center of map
+            gmap.ShowCenter = false; //don't display red cross in center of map
+
+            gmap.ShowCenter = false;
 
             //gmap.Overlays.Clear();
             GMapOverlay markersOverlay = new GMapOverlay("markers");
             GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(38.5602, -121.4241), GMarkerGoogleType.red_pushpin);
             markersOverlay.Markers.Add(marker);
-            gMapControl1.Overlays.Add(markersOverlay);
+            gmap.Overlays.Add(markersOverlay);
+        }*/
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer4_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer3_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer4_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gmap_Load(object sender, EventArgs e)
+        {
+            // Initialize map:
+            gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
+            gmap.Position = new PointLatLng(38.5602, -121.4241);
+            gmap.Zoom = 15;
+
+            gmap.ShowCenter = false; //don't display red cross in center of map
+
+            gmap.ShowCenter = false;
+
+            //gmap.Overlays.Clear();
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(38.5602, -121.4241), GMarkerGoogleType.red_pushpin);
+            markersOverlay.Markers.Add(marker);
+            gmap.Overlays.Add(markersOverlay);
+        }
+
+        private void xButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
