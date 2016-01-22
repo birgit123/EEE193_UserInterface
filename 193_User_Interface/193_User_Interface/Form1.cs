@@ -18,6 +18,7 @@ using System.IO;
 
 namespace _193_User_Interface
 {
+
     public partial class Form1 : Form
     {
         private SerialPort port;
@@ -26,8 +27,8 @@ namespace _193_User_Interface
         {
             InitializeComponent();
 
-           // SerialPort(); //call function for serial port control 
-            //Read(); //call to function for reading in serial data 
+          //  SerialPort(); //call function for serial port control 
+          //  Read(); //call to function for reading in serial data 
                      
             FormBorderStyle = FormBorderStyle.None;  
             WindowState = FormWindowState.Maximized;    //Maximize the form window
@@ -46,6 +47,7 @@ namespace _193_User_Interface
                 xButton1.Theme = ManiXButton.Theme.MSOffice2010_Green;
 
                 SerialPortDataReceived(port);
+                Read();
             }
             catch (IOException)
             {
@@ -57,21 +59,20 @@ namespace _193_User_Interface
 
          }
 
+        private void Read()
+        {
+            string data = port.ReadTo(".");
+            richTextBox1.Text = data;
+
+        }
+
         public void SerialPortDataReceived(SerialPort read) // Creates buffer to read data 
         {    
             byte[] buf;
             buf = new byte[read.BytesToRead];
             read.Read(buf, 0, buf.Length);
-            string result = Encoding.UTF8.GetString(buf);
-            richTextBox1.Text = result;
+            string result = Encoding.UTF8.GetString(buf);    
         }
-
-       /* private void Read()
-        {
-            string serialTest;
-
-        }*/
-
 
         private void gmap_Load_1(object sender, EventArgs e)
         {
@@ -96,8 +97,8 @@ namespace _193_User_Interface
         {
 
             SerialPort();
+            Read();
 
-            
             /*  if (xButton1.Text == "Not Connected")
             {
                 xButton1.Text = "Connected";
@@ -114,7 +115,10 @@ namespace _193_User_Interface
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-      
+            while (true)
+            {
+                Read();
+            }             
         }
     }
 }
