@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            ManiXButton.Office2010White office2010White1 = new ManiXButton.Office2010White();
             ManiXButton.Office2010Red office2010Red1 = new ManiXButton.Office2010Red();
+            ManiXButton.Office2010White office2010White1 = new ManiXButton.Office2010White();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -42,12 +42,12 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.xButton6 = new ManiXButton.XButton();
             this.xButton5 = new ManiXButton.XButton();
             this.xButton4 = new ManiXButton.XButton();
             this.xButton3 = new ManiXButton.XButton();
             this.xButton2 = new ManiXButton.XButton();
             this.xButton1 = new ManiXButton.XButton();
-            this.xButton6 = new ManiXButton.XButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -119,7 +119,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(399, 247);
+            this.textBox4.Location = new System.Drawing.Point(403, 302);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(135, 22);
             this.textBox4.TabIndex = 6;
@@ -128,7 +128,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(270, 247);
+            this.textBox3.Location = new System.Drawing.Point(274, 302);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(123, 22);
             this.textBox3.TabIndex = 5;
@@ -137,7 +137,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(141, 247);
+            this.textBox2.Location = new System.Drawing.Point(145, 302);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(123, 22);
             this.textBox2.TabIndex = 4;
@@ -146,7 +146,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 247);
+            this.textBox1.Location = new System.Drawing.Point(16, 302);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(123, 22);
             this.textBox1.TabIndex = 3;
@@ -189,89 +189,6 @@
             this.gmap.Zoom = 10D;
             this.gmap.Load += new System.EventHandler(this.gmap_Load_1);
             // 
-            // xButton5
-            // 
-            office2010White1.BorderColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(72)))), ((int)(((byte)(161)))));
-            office2010White1.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(135)))), ((int)(((byte)(228)))));
-            office2010White1.ButtonMouseOverColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(199)))), ((int)(((byte)(87)))));
-            office2010White1.ButtonMouseOverColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(215)))));
-            office2010White1.ButtonMouseOverColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(225)))), ((int)(((byte)(137)))));
-            office2010White1.ButtonMouseOverColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(249)))), ((int)(((byte)(224)))));
-            office2010White1.ButtonNormalColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(154)))), ((int)(((byte)(154)))));
-            office2010White1.ButtonNormalColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            office2010White1.ButtonNormalColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            office2010White1.ButtonNormalColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            office2010White1.ButtonSelectedColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(199)))), ((int)(((byte)(87)))));
-            office2010White1.ButtonSelectedColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(215)))));
-            office2010White1.ButtonSelectedColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(229)))), ((int)(((byte)(117)))));
-            office2010White1.ButtonSelectedColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(216)))), ((int)(((byte)(107)))));
-            office2010White1.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            office2010White1.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            office2010White1.TextColor = System.Drawing.Color.Black;
-            this.xButton5.ColorTable = office2010White1;
-            this.xButton5.Font = new System.Drawing.Font("Arial Black", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xButton5.Location = new System.Drawing.Point(399, 203);
-            this.xButton5.Name = "xButton5";
-            this.xButton5.Size = new System.Drawing.Size(135, 38);
-            this.xButton5.TabIndex = 14;
-            this.xButton5.Text = "Date/ Time";
-            this.xButton5.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
-            this.xButton5.UseVisualStyleBackColor = true;
-            this.xButton5.Click += new System.EventHandler(this.xButton5_Click);
-            // 
-            // xButton4
-            // 
-            this.xButton4.ColorTable = office2010White1;
-            this.xButton4.Font = new System.Drawing.Font("Arial Black", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xButton4.Location = new System.Drawing.Point(270, 203);
-            this.xButton4.Name = "xButton4";
-            this.xButton4.Size = new System.Drawing.Size(123, 38);
-            this.xButton4.TabIndex = 13;
-            this.xButton4.Text = "Heart Rate";
-            this.xButton4.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
-            this.xButton4.UseVisualStyleBackColor = true;
-            this.xButton4.Click += new System.EventHandler(this.xButton4_Click);
-            // 
-            // xButton3
-            // 
-            this.xButton3.ColorTable = office2010White1;
-            this.xButton3.Font = new System.Drawing.Font("Arial Black", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xButton3.Location = new System.Drawing.Point(141, 203);
-            this.xButton3.Name = "xButton3";
-            this.xButton3.Size = new System.Drawing.Size(123, 38);
-            this.xButton3.TabIndex = 12;
-            this.xButton3.Text = "Longitude";
-            this.xButton3.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
-            this.xButton3.UseVisualStyleBackColor = true;
-            this.xButton3.Click += new System.EventHandler(this.xButton3_Click);
-            // 
-            // xButton2
-            // 
-            this.xButton2.ColorTable = office2010White1;
-            this.xButton2.Font = new System.Drawing.Font("Arial Black", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xButton2.Location = new System.Drawing.Point(12, 203);
-            this.xButton2.Name = "xButton2";
-            this.xButton2.Size = new System.Drawing.Size(123, 38);
-            this.xButton2.TabIndex = 11;
-            this.xButton2.Text = "Latitude";
-            this.xButton2.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
-            this.xButton2.UseVisualStyleBackColor = true;
-            this.xButton2.Click += new System.EventHandler(this.xButton2_Click);
-            // 
-            // xButton1
-            // 
-            this.xButton1.AutoSize = true;
-            this.xButton1.ColorTable = office2010Red1;
-            this.xButton1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xButton1.Location = new System.Drawing.Point(141, 70);
-            this.xButton1.Name = "xButton1";
-            this.xButton1.Size = new System.Drawing.Size(248, 38);
-            this.xButton1.TabIndex = 0;
-            this.xButton1.Text = "Click to Connect";
-            this.xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;
-            this.xButton1.UseVisualStyleBackColor = true;
-            this.xButton1.Click += new System.EventHandler(this.xButton1_Click_1);
-            // 
             // xButton6
             // 
             this.xButton6.AutoSize = true;
@@ -294,7 +211,7 @@
             office2010Red1.TextColor = System.Drawing.Color.Black;
             this.xButton6.ColorTable = office2010Red1;
             this.xButton6.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xButton6.Location = new System.Drawing.Point(141, 114);
+            this.xButton6.Location = new System.Drawing.Point(16, 127);
             this.xButton6.Name = "xButton6";
             this.xButton6.Size = new System.Drawing.Size(248, 38);
             this.xButton6.TabIndex = 15;
@@ -302,6 +219,89 @@
             this.xButton6.Theme = ManiXButton.Theme.MSOffice2010_RED;
             this.xButton6.UseVisualStyleBackColor = true;
             this.xButton6.Click += new System.EventHandler(this.xButton6_Click);
+            // 
+            // xButton5
+            // 
+            office2010White1.BorderColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(72)))), ((int)(((byte)(161)))));
+            office2010White1.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(135)))), ((int)(((byte)(228)))));
+            office2010White1.ButtonMouseOverColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(199)))), ((int)(((byte)(87)))));
+            office2010White1.ButtonMouseOverColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(215)))));
+            office2010White1.ButtonMouseOverColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(225)))), ((int)(((byte)(137)))));
+            office2010White1.ButtonMouseOverColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(249)))), ((int)(((byte)(224)))));
+            office2010White1.ButtonNormalColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(154)))), ((int)(((byte)(154)))));
+            office2010White1.ButtonNormalColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            office2010White1.ButtonNormalColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            office2010White1.ButtonNormalColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            office2010White1.ButtonSelectedColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(199)))), ((int)(((byte)(87)))));
+            office2010White1.ButtonSelectedColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(215)))));
+            office2010White1.ButtonSelectedColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(229)))), ((int)(((byte)(117)))));
+            office2010White1.ButtonSelectedColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(216)))), ((int)(((byte)(107)))));
+            office2010White1.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            office2010White1.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            office2010White1.TextColor = System.Drawing.Color.Black;
+            this.xButton5.ColorTable = office2010White1;
+            this.xButton5.Font = new System.Drawing.Font("Arial Black", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xButton5.Location = new System.Drawing.Point(403, 258);
+            this.xButton5.Name = "xButton5";
+            this.xButton5.Size = new System.Drawing.Size(135, 38);
+            this.xButton5.TabIndex = 14;
+            this.xButton5.Text = "Date/ Time";
+            this.xButton5.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
+            this.xButton5.UseVisualStyleBackColor = true;
+            this.xButton5.Click += new System.EventHandler(this.xButton5_Click);
+            // 
+            // xButton4
+            // 
+            this.xButton4.ColorTable = office2010White1;
+            this.xButton4.Font = new System.Drawing.Font("Arial Black", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xButton4.Location = new System.Drawing.Point(274, 258);
+            this.xButton4.Name = "xButton4";
+            this.xButton4.Size = new System.Drawing.Size(123, 38);
+            this.xButton4.TabIndex = 13;
+            this.xButton4.Text = "Heart Rate";
+            this.xButton4.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
+            this.xButton4.UseVisualStyleBackColor = true;
+            this.xButton4.Click += new System.EventHandler(this.xButton4_Click);
+            // 
+            // xButton3
+            // 
+            this.xButton3.ColorTable = office2010White1;
+            this.xButton3.Font = new System.Drawing.Font("Arial Black", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xButton3.Location = new System.Drawing.Point(145, 258);
+            this.xButton3.Name = "xButton3";
+            this.xButton3.Size = new System.Drawing.Size(123, 38);
+            this.xButton3.TabIndex = 12;
+            this.xButton3.Text = "Longitude";
+            this.xButton3.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
+            this.xButton3.UseVisualStyleBackColor = true;
+            this.xButton3.Click += new System.EventHandler(this.xButton3_Click);
+            // 
+            // xButton2
+            // 
+            this.xButton2.ColorTable = office2010White1;
+            this.xButton2.Font = new System.Drawing.Font("Arial Black", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xButton2.Location = new System.Drawing.Point(16, 258);
+            this.xButton2.Name = "xButton2";
+            this.xButton2.Size = new System.Drawing.Size(123, 38);
+            this.xButton2.TabIndex = 11;
+            this.xButton2.Text = "Latitude";
+            this.xButton2.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
+            this.xButton2.UseVisualStyleBackColor = true;
+            this.xButton2.Click += new System.EventHandler(this.xButton2_Click);
+            // 
+            // xButton1
+            // 
+            this.xButton1.AutoSize = true;
+            this.xButton1.ColorTable = office2010Red1;
+            this.xButton1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xButton1.Location = new System.Drawing.Point(16, 83);
+            this.xButton1.Name = "xButton1";
+            this.xButton1.Size = new System.Drawing.Size(248, 38);
+            this.xButton1.TabIndex = 0;
+            this.xButton1.Text = "Click to Connect";
+            this.xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;
+            this.xButton1.UseVisualStyleBackColor = true;
+            this.xButton1.Click += new System.EventHandler(this.xButton1_Click_1);
             // 
             // Form1
             // 
