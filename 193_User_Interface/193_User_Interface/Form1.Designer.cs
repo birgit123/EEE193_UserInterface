@@ -35,19 +35,19 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.gmap = new GMap.NET.WindowsForms.GMapControl();
-            this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.xButton6 = new ManiXButton.XButton();
             this.xButton5 = new ManiXButton.XButton();
             this.xButton4 = new ManiXButton.XButton();
             this.xButton3 = new ManiXButton.XButton();
             this.xButton2 = new ManiXButton.XButton();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.xButton1 = new ManiXButton.XButton();
+            this.gmap = new GMap.NET.WindowsForms.GMapControl();
+            this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -117,78 +117,6 @@
             this.splitContainer2.SplitterDistance = 547;
             this.splitContainer2.TabIndex = 0;
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(403, 302);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(135, 22);
-            this.textBox4.TabIndex = 6;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(274, 302);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(123, 22);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(145, 302);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(123, 22);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(16, 302);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 22);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dateTimePicker1.Location = new System.Drawing.Point(0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(260, 22);
-            this.dateTimePicker1.TabIndex = 2;
-            // 
-            // gmap
-            // 
-            this.gmap.Bearing = 0F;
-            this.gmap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.gmap.CanDragMap = true;
-            this.gmap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gmap.EmptyTileColor = System.Drawing.Color.Navy;
-            this.gmap.GrayScaleMode = false;
-            this.gmap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            this.gmap.LevelsKeepInMemmory = 5;
-            this.gmap.Location = new System.Drawing.Point(0, 0);
-            this.gmap.MarkersEnabled = true;
-            this.gmap.MaxZoom = 18;
-            this.gmap.MinZoom = 5;
-            this.gmap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
-            this.gmap.Name = "gmap";
-            this.gmap.NegativeMode = false;
-            this.gmap.PolygonsEnabled = true;
-            this.gmap.RetryLoadTile = 0;
-            this.gmap.RoutesEnabled = true;
-            this.gmap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            this.gmap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.gmap.ShowTileGridLines = false;
-            this.gmap.Size = new System.Drawing.Size(813, 657);
-            this.gmap.TabIndex = 0;
-            this.gmap.Zoom = 10D;
-            this.gmap.Load += new System.EventHandler(this.gmap_Load_1);
-            // 
             // xButton6
             // 
             this.xButton6.AutoSize = true;
@@ -248,7 +176,6 @@
             this.xButton5.Text = "Date/ Time";
             this.xButton5.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
             this.xButton5.UseVisualStyleBackColor = true;
-            this.xButton5.Click += new System.EventHandler(this.xButton5_Click);
             // 
             // xButton4
             // 
@@ -261,7 +188,6 @@
             this.xButton4.Text = "Heart Rate";
             this.xButton4.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
             this.xButton4.UseVisualStyleBackColor = true;
-            this.xButton4.Click += new System.EventHandler(this.xButton4_Click);
             // 
             // xButton3
             // 
@@ -274,7 +200,6 @@
             this.xButton3.Text = "Longitude";
             this.xButton3.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
             this.xButton3.UseVisualStyleBackColor = true;
-            this.xButton3.Click += new System.EventHandler(this.xButton3_Click);
             // 
             // xButton2
             // 
@@ -287,7 +212,46 @@
             this.xButton2.Text = "Latitude";
             this.xButton2.Theme = ManiXButton.Theme.MSOffice2010_WHITE;
             this.xButton2.UseVisualStyleBackColor = true;
-            this.xButton2.Click += new System.EventHandler(this.xButton2_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(403, 302);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(135, 22);
+            this.textBox4.TabIndex = 6;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(274, 302);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(123, 22);
+            this.textBox3.TabIndex = 5;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(145, 302);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(123, 22);
+            this.textBox2.TabIndex = 4;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(16, 302);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(123, 22);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dateTimePicker1.Location = new System.Drawing.Point(0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(260, 22);
+            this.dateTimePicker1.TabIndex = 2;
             // 
             // xButton1
             // 
@@ -302,6 +266,34 @@
             this.xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;
             this.xButton1.UseVisualStyleBackColor = true;
             this.xButton1.Click += new System.EventHandler(this.xButton1_Click_1);
+            // 
+            // gmap
+            // 
+            this.gmap.Bearing = 0F;
+            this.gmap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gmap.CanDragMap = true;
+            this.gmap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gmap.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gmap.GrayScaleMode = false;
+            this.gmap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gmap.LevelsKeepInMemmory = 5;
+            this.gmap.Location = new System.Drawing.Point(0, 0);
+            this.gmap.MarkersEnabled = true;
+            this.gmap.MaxZoom = 18;
+            this.gmap.MinZoom = 5;
+            this.gmap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gmap.Name = "gmap";
+            this.gmap.NegativeMode = false;
+            this.gmap.PolygonsEnabled = true;
+            this.gmap.RetryLoadTile = 0;
+            this.gmap.RoutesEnabled = true;
+            this.gmap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gmap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gmap.ShowTileGridLines = false;
+            this.gmap.Size = new System.Drawing.Size(813, 657);
+            this.gmap.TabIndex = 0;
+            this.gmap.Zoom = 10D;
+            this.gmap.Load += new System.EventHandler(this.gmap_Load_1);
             // 
             // Form1
             // 

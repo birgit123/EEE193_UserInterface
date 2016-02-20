@@ -21,8 +21,17 @@ namespace _193_User_Interface
 
     public partial class Form1 : Form
     {
-        private SerialPort port;
+        public SerialPort port;
         private bool flag_connect = true;
+        double latitude;
+        double longitude;
+        int Heart_Rate;
+        string Date_Time;
+        String str_lat = "";
+        String str_lon = "";
+        String str_heart_rate = "";
+        String str_date = "";
+        String[] arr_data = new String[4];
 
         public Form1()
         {
@@ -42,14 +51,15 @@ namespace _193_User_Interface
 
             try
             {
-                if (flag_connect)
-                {
-                    port.Close();
-                    xButton1.Text = "Click to Connect";
-                    xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;
-                
-                }
+                flag_connect = true;
+                //if (!flag_connect)
+                //{
+                //    port.Close();
+                //    xButton1.Text = "Click to Connect";
+                //    xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;
 
+                //}
+                
                 port.Open();
                 //Set button #1's status and color 
                 xButton1.Text = "Connected";
@@ -57,14 +67,12 @@ namespace _193_User_Interface
 
                 //Read();
                 
-                Task.Run(() =>
-                {
-                    while (port.IsOpen)
-                    {
-                        Read();
-                    }
+                
+                //while (port.IsOpen)
+                //{
+                //    Read();
+                //}
                     
-                }); 
                     
 
                     /*while(!flag_connect)
@@ -97,7 +105,7 @@ namespace _193_User_Interface
             }
          }
 
-        private void Read()
+        public static String[] Read(SerialPort port)
         {
             long Inlatitude;
             long Inlongitude;
@@ -105,12 +113,16 @@ namespace _193_User_Interface
             double longitude;
             int Heart_Rate;
             string Date_Time;
+            string[] words = {""};
+            string data = "";
 
-            string data = port.ReadTo("]");
-
-            string[] words = data.Split(',');
+            do
+            {
+                data = port.ReadTo("]");
+                words = data.Split(',');
+            } while (words.Length != 4);
             
-            if (words.Length == 4 && words[0] != null && words[1] != null)
+            if (words[0] != null && words[1] != null)
             {
                 try
                 {
@@ -118,22 +130,21 @@ namespace _193_User_Interface
                     latitude = (Inlatitude / 1000000.0);
                     Inlongitude = Int64.Parse(words[1]);
                     longitude = (Inlongitude / 1000000.0);
-                    textBox1.Text = ("" + latitude);
-                    textBox2.Text = ("" + longitude);
-                    //Location_ShowAll_Tab.Text = ("Lat:" + latitude + " Lon:" + longitude);
-                    map_start(latitude, longitude);              
+                    words[0] = ("" + latitude);
+                    words[1] = ("" + longitude);
+                    //Location_ShowAll_Tab.Text = ("Lat:" + latitude + " Lon:" + longitude);            
                 }
                 catch (FormatException)
                 {
                     // Location_ShowAll_Tab.Text = ("Format Issue!!!!");
-                    textBox1.Text = ("Format Error");
-                    textBox2.Text = ("Format Error");
+                    words[0] = ("Format Error");
+                    words[1] = ("Format Error");
                 }
 
                 if (words[2] == null)
                 {
                     Heart_Rate = 0; //set default heart rate
-                    textBox3.Text = ("Set to default");
+                    words[2] = ("N/A");
                     // Heart_Rate_ShowAll_Tab.Text = ("Set to default");
                 }
                 else
@@ -141,27 +152,27 @@ namespace _193_User_Interface
                     try
                     {
                         Heart_Rate = Convert.ToInt32(words[2]);    // Convert String into int
-                        textBox3.Text = ("" + Heart_Rate);
+                        words[2] = ("" + Heart_Rate);
                     }
                     catch (FormatException)
                     {
-                        textBox3.Text = ("Format Error");
+                        words[2] = ("Format Error");
                     }
                 }
                 if (words[3] == null)
                 {
-                    textBox3.Text = ("Not available");
+                    words[3] = ("Not available");
                 }
                 else
                 {
                     try
                     {
                         Date_Time = words[3]; //  Keeps string as a string
-                        textBox4.Text = ("" + Date_Time);
+                        words[3] = ("" + Date_Time);
                     }
                     catch (FormatException)
                     {
-                        textBox4.Text = ("Format Error");
+                        words[3] = ("Format Error");
                     }
                 }
             }
@@ -169,9 +180,11 @@ namespace _193_User_Interface
             {
                 //set default lat/ long - csus
                 latitude = 38.556868;
+                words[0] = "38.556868";
                 longitude = -121.358592;
-                map_start(latitude, longitude);
+                words[1] = "-121.358592";
             }
+            return words;
         }
 
        // }
@@ -204,73 +217,62 @@ namespace _193_User_Interface
         {
             //Call function to open serial communication 
             SerialPort();
+            new Thread(new ThreadStart(BackGround_Data)).Start();
+
+            
+            while (flag_connect)
+            {
+                if(latitude == 0 || longitude == 0)
+                {
+                    Thread.Sleep(1000);
+                    continue;
+                }
+
+                Thread.Sleep(1000);
+                map_start(latitude, longitude);
+                Port_Text_Data();
+                Refresh_Buttons();
+                Refresh_Text();
+                Thread.Sleep(1000);
+            }
 
             //Read();
         }
-        
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {                      
 
+        private void Port_Text_Data()
+        {
+            textBox1.Text = str_lat;
+            textBox2.Text = str_lon;
+            textBox3.Text = str_heart_rate;
+            textBox4.Text = str_date;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void Refresh_Text()
         {
-
+            textBox1.Refresh();
+            textBox2.Refresh();
+            textBox3.Refresh();
+            textBox4.Refresh();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void Refresh_Buttons()
         {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void xButton2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void xButton3_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void xButton4_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void xButton5_Click(object sender, EventArgs e)
-        {
-           
+            xButton1.Refresh();
+            xButton2.Refresh();
+            xButton3.Refresh();
+            xButton4.Refresh();
+            xButton5.Refresh();
+            xButton6.Refresh();
         }
 
         private void xButton6_Click(object sender, EventArgs e)
         {
-            Task.Run(() =>
-            {
-                flag_connect = false;
-                try
-                {
-                    //SerialPort();
-                    port.Close();
-                    //Set textboxes back to null
-                    textBox1.Text = "";
-                    textBox2.Text = "";
-                    textBox3.Text = "";
-                    textBox4.Text = "";
+            flag_connect = false;
+            port.Close();
+            xButton1.Text = "Click to Connect";
+            xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;
+            //xButton1.PerformClick();
 
-                    this.Close();
-                }
-                catch(Exception exc)
-                {
-                    MessageBox.Show("Something went wrong with your disconnect button:\n\n" + exc + "\n\nPlease press OK and try again.");
-                }
-              
-            });
             //flag_connect = false;
 
             //SerialPort();
@@ -278,11 +280,33 @@ namespace _193_User_Interface
 
             //Set textboxes back to null
             //textBox1.Text = "";
-           // textBox2.Text = "";
-          //  textBox3.Text = "";
-          //  textBox4.Text = "";
-            
-          //  Close();
+            // textBox2.Text = "";
+            //  textBox3.Text = "";
+            //  textBox4.Text = "";
+
+            //  Close();
+        }
+        public void BackGround_Data()
+        {
+            Thread.Sleep(100);
+            if (flag_connect)
+            {
+                arr_data = Read(port);
+                latitude = Convert.ToDouble(arr_data[0]);
+                longitude = Convert.ToDouble(arr_data[1]);
+                Heart_Rate = Convert.ToInt32(arr_data[2]);
+                Date_Time = arr_data[3];
+
+                str_lat = arr_data[0];
+                str_lon = arr_data[1];
+                str_heart_rate = arr_data[2];
+                str_date = arr_data[3];
+
+            }
+            else
+            {
+                Thread.CurrentThread.Abort();
+            }
         }
     }
 }
