@@ -134,7 +134,7 @@ namespace _193_User_Interface
                     words[1] = ("" + longitude);
                     //Location_ShowAll_Tab.Text = ("Lat:" + latitude + " Lon:" + longitude);            
                 }
-                catch (FormatException)
+                catch (Exception)
                 {
                     // Location_ShowAll_Tab.Text = ("Format Issue!!!!");
                     words[0] = ("Format Error");
@@ -217,33 +217,37 @@ namespace _193_User_Interface
         {
             //Call function to open serial communication 
             SerialPort();
-            new Thread(new ThreadStart(BackGround_Data)).Start();
+            Thread thread_data = new Thread(new ThreadStart(BackGround_Data));
+            thread_data.Start();
+            timer1.Start();
+            timer1.Interval = 500;
 
-            
+
             while (flag_connect)
             {
-                if(latitude == 0 || longitude == 0)
+                //if (flag_connect)
+                //{
+                //    arr_data = Read(port);
+                //    latitude = Convert.ToDouble(arr_data[0]);
+                //    longitude = Convert.ToDouble(arr_data[1]);
+                //    Heart_Rate = Convert.ToInt32(arr_data[2]);
+                //    Date_Time = arr_data[3];
+
+                //    str_lat = arr_data[0];
+                //    str_lon = arr_data[1];
+                //    str_heart_rate = arr_data[2];
+                //    str_date = arr_data[3];
+
+                //}
+                //else
+                //{
+                //    Thread.CurrentThread.Abort();
+                //}
+
+                if (latitude == 0 || longitude == 0)
                 {
                     Thread.Sleep(1000);
                     continue;
-                }
-                if (flag_connect)
-                {
-                    arr_data = Read(port);
-                    latitude = Convert.ToDouble(arr_data[0]);
-                    longitude = Convert.ToDouble(arr_data[1]);
-                    Heart_Rate = Convert.ToInt32(arr_data[2]);
-                    Date_Time = arr_data[3];
-
-                    str_lat = arr_data[0];
-                    str_lon = arr_data[1];
-                    str_heart_rate = arr_data[2];
-                    str_date = arr_data[3];
-
-                }
-                else
-                {
-                    Thread.CurrentThread.Abort();
                 }
 
                 Thread.Sleep(800);
@@ -252,6 +256,7 @@ namespace _193_User_Interface
                 Refresh_Buttons();
                 Refresh_Text();
                 Thread.Sleep(800);
+                Application.DoEvents();
             }
 
             //Read();
@@ -327,6 +332,15 @@ namespace _193_User_Interface
             {
                 Thread.CurrentThread.Abort();
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            map_start(latitude, longitude);
+            Port_Text_Data();
+            Refresh_Buttons();
+            Refresh_Text();
         }
     }
 }
