@@ -217,8 +217,7 @@ namespace _193_User_Interface
         {
             //Call function to open serial communication 
             SerialPort();
-            Thread thread_data = new Thread(new ThreadStart(BackGround_Data));
-            thread_data.Start();
+            new Thread(new ThreadStart(BackGround_Data)).Start();
             timer1.Start();
             timer1.Interval = 500;
 
@@ -250,13 +249,13 @@ namespace _193_User_Interface
                     continue;
                 }
 
-                Thread.Sleep(800);
-                map_start(latitude, longitude);
-                Port_Text_Data();
-                Refresh_Buttons();
-                Refresh_Text();
-                Thread.Sleep(800);
                 Application.DoEvents();
+                //Thread.Sleep(800);
+                //map_start(latitude, longitude);
+                //Port_Text_Data();
+                //Refresh_Buttons();
+                //Refresh_Text();
+                //Thread.Sleep(800);
             }
 
             //Read();
