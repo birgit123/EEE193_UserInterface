@@ -227,13 +227,31 @@ namespace _193_User_Interface
                     Thread.Sleep(1000);
                     continue;
                 }
+                if (flag_connect)
+                {
+                    arr_data = Read(port);
+                    latitude = Convert.ToDouble(arr_data[0]);
+                    longitude = Convert.ToDouble(arr_data[1]);
+                    Heart_Rate = Convert.ToInt32(arr_data[2]);
+                    Date_Time = arr_data[3];
 
-                Thread.Sleep(1000);
+                    str_lat = arr_data[0];
+                    str_lon = arr_data[1];
+                    str_heart_rate = arr_data[2];
+                    str_date = arr_data[3];
+
+                }
+                else
+                {
+                    Thread.CurrentThread.Abort();
+                }
+
+                Thread.Sleep(800);
                 map_start(latitude, longitude);
                 Port_Text_Data();
                 Refresh_Buttons();
                 Refresh_Text();
-                Thread.Sleep(1000);
+                Thread.Sleep(800);
             }
 
             //Read();
@@ -271,6 +289,7 @@ namespace _193_User_Interface
             port.Close();
             xButton1.Text = "Click to Connect";
             xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;
+            Refresh_Buttons();
             //xButton1.PerformClick();
 
             //flag_connect = false;
@@ -279,16 +298,17 @@ namespace _193_User_Interface
             //port.Close();
 
             //Set textboxes back to null
-            //textBox1.Text = "";
-            // textBox2.Text = "";
-            //  textBox3.Text = "";
-            //  textBox4.Text = "";
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            Refresh_Text();
 
             //  Close();
         }
         public void BackGround_Data()
         {
-            Thread.Sleep(100);
+            Thread.Sleep(10);
             if (flag_connect)
             {
                 arr_data = Read(port);
