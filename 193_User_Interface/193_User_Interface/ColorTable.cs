@@ -496,7 +496,7 @@ namespace ManiXButton
 
             // Button Text Color
 
-            this.TextColor = Color.White;
+            this.TextColor = Color.Black;
             this.SelectedTextColor = Color.FromArgb(30, 57, 91);
             this.HoverTextColor = Color.FromArgb(30, 57, 91);
 
