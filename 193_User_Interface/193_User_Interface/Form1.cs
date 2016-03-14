@@ -26,12 +26,12 @@ namespace _193_User_Interface
         double latitude;
         double longitude;
         int Heart_Rate;
-        string Date_Time;
+        //string Date_Time;
         String str_lat = "";
         String str_lon = "";
         String str_heart_rate = "";
-        String str_date = "";
-        String[] arr_data = new String[4];
+        //String str_date = "";
+        String[] arr_data = new String[3];
 
         public Form1()
         {
@@ -47,59 +47,21 @@ namespace _193_User_Interface
         private void SerialPort()
         {
             //Initialize com port
-            port = new SerialPort("COM5", 9600, Parity.None, 8, StopBits.One);
+            port = new SerialPort("COM8", 9600, Parity.None, 8, StopBits.One);
 
             try
             {
                 flag_connect = true;
-                //if (!flag_connect)
-                //{
-                //    port.Close();
-                //    xButton1.Text = "Click to Connect";
-                //    xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;
-
-                //}
                 
                 port.Open();
                 //Set button #1's status and color 
                 xButton1.Text = "Connected";
                 xButton1.Theme = ManiXButton.Theme.MSOffice2010_Green;
-
-                //Read();
-                
-                
-                //while (port.IsOpen)
-                //{
-                //    Read();
-                //}
-                    
-                    
-
-                    /*while(!flag_connect)
-                    {
-                        continue;
-                        
-                        xButton1.Text = "Click to Connect";
-                        xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;
-                        port.Close();
-                        Close();
-
-                    }
-                }*/
-
-                /* while (port.IsOpen && !flag_connect)
-                 { 
-                     //SerialPortDataReceived(port);
-                     Read();
-                     //flag_connect = false;
-
-                     break;
-                 }*/
             }
             catch (IOException)
             {
                 port.Close();
-                MessageBox.Show("Connection could not be established. Please press OK and try again.");             
+                MessageBox.Show("Connection could not be established. Please try again.");             
                 //Application.Exit();
                 //Close();
             }
@@ -109,26 +71,44 @@ namespace _193_User_Interface
         {
             long Inlatitude;
             long Inlongitude;
+            string strLatitude = "";
+            string strLongitude = "";
             double latitude;
             double longitude;
             int Heart_Rate;
-            string Date_Time;
+            bool flag_badData = false;
+            //string Date_Time;
             string[] words = {""};
             string data = "";
 
             do
             {
+                flag_badData = false;
                 data = port.ReadTo("]");
                 words = data.Split(',');
-            } while (words.Length != 4);
-            
+                if (words.Length != 3 || words[0].Length < 8 || words[1].Length < 10 || words[2].Length > 3)
+                {
+                    flag_badData = true;
+                }
+                else
+                {
+                    strLatitude = words[0].Remove(0, words[0].Length - 8);
+                    strLongitude = words[1].Remove(0, words[1].Length - 10);
+                    if (!IsAllDigits(strLatitude) || !IsAllDigits(strLongitude) || !IsAllDigits(words[2]))
+                    {
+                        flag_badData = true;
+                    }
+                }
+                
+            } while ( flag_badData || Int64.Parse(strLatitude) > 90000000 || Int64.Parse(strLatitude) < -90000000 || Int64.Parse(strLongitude) < -180000000 || Int64.Parse(strLongitude) > 180000000);
+            // lat = 90 long = 180
             if (words[0] != null && words[1] != null)
             {
                 try
                 {
-                    Inlatitude = Int64.Parse(words[0]);
+                    Inlatitude = Int64.Parse(strLatitude);
                     latitude = (Inlatitude / 1000000.0);
-                    Inlongitude = Int64.Parse(words[1]);
+                    Inlongitude = Int64.Parse(strLongitude);
                     longitude = (Inlongitude / 1000000.0);
                     words[0] = ("" + latitude);
                     words[1] = ("" + longitude);
@@ -137,8 +117,11 @@ namespace _193_User_Interface
                 catch (FormatException)
                 {
                     // Location_ShowAll_Tab.Text = ("Format Issue!!!!");
-                    words[0] = ("Format Error");
-                    words[1] = ("Format Error");
+                    latitude = 38.556868;
+                    words[0] = "38.556868";
+                    longitude = -121.358592;
+                    words[1] = "-121.358592";
+                    Read(port);
                 }
 
                 if (words[2] == null)
@@ -159,7 +142,7 @@ namespace _193_User_Interface
                         words[2] = ("Format Error");
                     }
                 }
-                if (words[3] == null)
+               /* if (words[3] == null)
                 {
                     words[3] = ("Not available");
                 }
@@ -174,7 +157,7 @@ namespace _193_User_Interface
                     {
                         words[3] = ("Format Error");
                     }
-                }
+                }*/
             }
             else
             {
@@ -219,40 +202,42 @@ namespace _193_User_Interface
             SerialPort();
             new Thread(new ThreadStart(BackGround_Data)).Start();
 
-            
+            Refresh_Buttons();
+            Refresh_Text();
+
             while (flag_connect)
-            {
-                if(latitude == 0 || longitude == 0)
-                {
-                    Thread.Sleep(1000);
-                    continue;
-                }
-                if (flag_connect)
-                {
-                    arr_data = Read(port);
-                    latitude = Convert.ToDouble(arr_data[0]);
+             {
+                 if(latitude == 0 || longitude == 0)
+                 {
+                     Thread.Sleep(1000);
+                     continue;
+                 }
+                 if (!flag_connect)
+                 {
+                     Thread.CurrentThread.Abort();
+                 }
+                 else
+                 {
+                     arr_data = Read(port);
+                     
+                     latitude = Convert.ToDouble(arr_data[0]);
+                    //latitude = double.Parse(arr_data[0]);
                     longitude = Convert.ToDouble(arr_data[1]);
+                    //longitude = double.Parse(arr_data[1]);
                     Heart_Rate = Convert.ToInt32(arr_data[2]);
-                    Date_Time = arr_data[3];
+                    //Heart_Rate = Int32.Parse(arr_data[2]);
+                     str_lat = arr_data[0];
+                     str_lon = arr_data[1];
+                     str_heart_rate = arr_data[2];
+                 }
 
-                    str_lat = arr_data[0];
-                    str_lon = arr_data[1];
-                    str_heart_rate = arr_data[2];
-                    str_date = arr_data[3];
-
-                }
-                else
-                {
-                    Thread.CurrentThread.Abort();
-                }
-
-                Thread.Sleep(800);
-                map_start(latitude, longitude);
-                Port_Text_Data();
-                Refresh_Buttons();
-                Refresh_Text();
-                Thread.Sleep(800);
-            }
+                 Thread.Sleep(800);
+                 map_start(latitude, longitude);
+                 Port_Text_Data();
+                 Refresh_Buttons();
+                 Refresh_Text();
+                 Thread.Sleep(800);
+             }
 
             //Read();
         }
@@ -262,7 +247,7 @@ namespace _193_User_Interface
             textBox1.Text = str_lat;
             textBox2.Text = str_lon;
             textBox3.Text = str_heart_rate;
-            textBox4.Text = str_date;
+
         }
 
         private void Refresh_Text()
@@ -270,7 +255,6 @@ namespace _193_User_Interface
             textBox1.Refresh();
             textBox2.Refresh();
             textBox3.Refresh();
-            textBox4.Refresh();
         }
 
         private void Refresh_Buttons()
@@ -279,7 +263,6 @@ namespace _193_User_Interface
             xButton2.Refresh();
             xButton3.Refresh();
             xButton4.Refresh();
-            xButton5.Refresh();
             xButton6.Refresh();
         }
 
@@ -287,6 +270,7 @@ namespace _193_User_Interface
         {
             flag_connect = false;
             port.Close();
+
             xButton1.Text = "Click to Connect";
             xButton1.Theme = ManiXButton.Theme.MSOffice2010_RED;
             Refresh_Buttons();
@@ -301,7 +285,6 @@ namespace _193_User_Interface
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
-            textBox4.Text = "";
             Refresh_Text();
 
             //  Close();
@@ -313,20 +296,62 @@ namespace _193_User_Interface
             {
                 arr_data = Read(port);
                 latitude = Convert.ToDouble(arr_data[0]);
+                //latitude = double.Parse(arr_data[0]);
                 longitude = Convert.ToDouble(arr_data[1]);
+                //longitude = double.Parse(arr_data[1]);
                 Heart_Rate = Convert.ToInt32(arr_data[2]);
-                Date_Time = arr_data[3];
-
+                //Heart_Rate = Int32.Parse(arr_data[2]);
                 str_lat = arr_data[0];
                 str_lon = arr_data[1];
                 str_heart_rate = arr_data[2];
-                str_date = arr_data[3];
-
             }
             else
             {
                 Thread.CurrentThread.Abort();
             }
         }
+
+        private void splitContainer3_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void xButton7_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+   
+        static bool IsAllDigits(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!char.IsDigit(c) && !c.Equals('-'))
+                    return false;
+            }
+            return true;
+        }
     }
+
 }
