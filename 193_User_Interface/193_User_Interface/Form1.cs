@@ -47,7 +47,7 @@ namespace _193_User_Interface
         private void SerialPort()
         {
             //Initialize com port
-            port = new SerialPort("COM9", 9600, Parity.None, 8, StopBits.One);
+            port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
 
             try
             {
@@ -184,7 +184,7 @@ namespace _193_User_Interface
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
             gmap.Position = new PointLatLng(x,y);
-            gmap.Zoom = 35;
+            gmap.Zoom = 20;
 
             gmap.ShowCenter = false; //don't display red cross in center of map
 
@@ -193,6 +193,7 @@ namespace _193_User_Interface
             GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(x,y), GMarkerGoogleType.red_pushpin);
             markersOverlay.Markers.Add(marker);
             gmap.Overlays.Add(markersOverlay);
+            gmap.Zoom = 25;
 
         }
 
@@ -210,7 +211,7 @@ namespace _193_User_Interface
             {
                 if (latitude == 0 || longitude == 0)
                 {
-                    Thread.Sleep(1000);
+                    await PutTaskDelay(1000);
                     continue;
                 }
                 if (!flag_connect)
@@ -222,8 +223,10 @@ namespace _193_User_Interface
                     arr_data = Read(port);
 
                     latitude = Convert.ToDouble(arr_data[0]);
+                    latitude = Math.Round(latitude, 6, MidpointRounding.AwayFromZero);
                     //latitude = double.Parse(arr_data[0]);
                     longitude = Convert.ToDouble(arr_data[1]);
+                    longitude = Math.Round(longitude, 6, MidpointRounding.AwayFromZero);
                     //longitude = double.Parse(arr_data[1]);
                     Heart_Rate = Convert.ToInt32(arr_data[2]);
                     //Heart_Rate = Int32.Parse(arr_data[2]);
@@ -233,13 +236,13 @@ namespace _193_User_Interface
                     str_date = arr_data[3];
                 }
 
-                Thread.Sleep(800);
+                //await PutTaskDelay(500);
                 map_start(latitude, longitude);
                 Port_Text_Data();
                 Refresh_Buttons();
                 Refresh_Text();
                 //Thread.Sleep(800);
-                await PutTaskDelay();
+                await PutTaskDelay(3000);
             }
 
             //Read();
@@ -359,9 +362,9 @@ namespace _193_User_Interface
             return true;
         }
 
-        async Task PutTaskDelay()
+        async Task PutTaskDelay(int delay)
         {
-            await Task.Delay(5000);
+            await Task.Delay(delay);
         }
 
 
