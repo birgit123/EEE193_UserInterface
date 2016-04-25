@@ -26,7 +26,7 @@ namespace _193_User_Interface
         double latitude;
         double longitude;
         int Heart_Rate;
-        //string Date_Time;
+        string Date_Time;
         String str_lat = "";
         String str_lon = "";
         String str_heart_rate = "";
@@ -47,7 +47,7 @@ namespace _193_User_Interface
         private void SerialPort()
         {
             //Initialize com port
-            port = new SerialPort("COM10", 9600, Parity.None, 8, StopBits.One);
+            port = new SerialPort("COM9", 9600, Parity.None, 8, StopBits.One);
 
             try
             {
@@ -166,6 +166,7 @@ namespace _193_User_Interface
                 words[0] = "38.556868";
                 longitude = -121.358592;
                 words[1] = "-121.358592";
+                Read(port);
             }
             return words;
         }
@@ -183,7 +184,7 @@ namespace _193_User_Interface
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
             gmap.Position = new PointLatLng(x,y);
-            gmap.Zoom = 15;
+            gmap.Zoom = 35;
 
             gmap.ShowCenter = false; //don't display red cross in center of map
 
@@ -196,7 +197,7 @@ namespace _193_User_Interface
         }
 
 
-        private void xButton1_Click_1(object sender, EventArgs e)
+        private async void xButton1_Click_1(object sender, EventArgs e)
         {
             //Call function to open serial communication 
             SerialPort();
@@ -206,21 +207,21 @@ namespace _193_User_Interface
             Refresh_Text();
 
             while (flag_connect)
-             {
-                 if(latitude == 0 || longitude == 0)
-                 {
-                     Thread.Sleep(1000);
-                     continue;
-                 }
-                 if (!flag_connect)
-                 {
-                     Thread.CurrentThread.Abort();
-                 }
-                 else
-                 {
-                     arr_data = Read(port);
-                     
-                     latitude = Convert.ToDouble(arr_data[0]);
+            {
+                if (latitude == 0 || longitude == 0)
+                {
+                    Thread.Sleep(1000);
+                    continue;
+                }
+                if (!flag_connect)
+                {
+                    Thread.CurrentThread.Abort();
+                }
+                else
+                {
+                    arr_data = Read(port);
+
+                    latitude = Convert.ToDouble(arr_data[0]);
                     //latitude = double.Parse(arr_data[0]);
                     longitude = Convert.ToDouble(arr_data[1]);
                     //longitude = double.Parse(arr_data[1]);
@@ -230,15 +231,16 @@ namespace _193_User_Interface
                     str_lon = arr_data[1];
                     str_heart_rate = arr_data[2];
                     str_date = arr_data[3];
-                 }
+                }
 
-                 Thread.Sleep(800);
-                 map_start(latitude, longitude);
-                 Port_Text_Data();
-                 Refresh_Buttons();
-                 Refresh_Text();
-                 Thread.Sleep(800);
-             }
+                Thread.Sleep(800);
+                map_start(latitude, longitude);
+                Port_Text_Data();
+                Refresh_Buttons();
+                Refresh_Text();
+                //Thread.Sleep(800);
+                await PutTaskDelay();
+            }
 
             //Read();
         }
@@ -288,9 +290,10 @@ namespace _193_User_Interface
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
+            textBox4.Text = "";
             Refresh_Text();
 
-            //  Close();
+            //Close();
         }
         public void BackGround_Data()
         {
@@ -355,6 +358,12 @@ namespace _193_User_Interface
             }
             return true;
         }
+
+        async Task PutTaskDelay()
+        {
+            await Task.Delay(5000);
+        }
+
 
     }
 

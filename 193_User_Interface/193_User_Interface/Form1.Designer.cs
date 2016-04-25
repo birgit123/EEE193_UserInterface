@@ -185,7 +185,7 @@
             // 
             this.textBox7.Location = new System.Drawing.Point(141, 582);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(156, 26);
+            this.textBox7.Size = new System.Drawing.Size(208, 26);
             this.textBox7.TabIndex = 24;
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -193,7 +193,7 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(141, 550);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(156, 26);
+            this.textBox6.Size = new System.Drawing.Size(208, 26);
             this.textBox6.TabIndex = 23;
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -201,7 +201,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(141, 516);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(156, 26);
+            this.textBox5.Size = new System.Drawing.Size(208, 26);
             this.textBox5.TabIndex = 22;
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -285,7 +285,7 @@
             this.xButton9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.xButton9.Location = new System.Drawing.Point(12, 486);
             this.xButton9.Name = "xButton9";
-            this.xButton9.Size = new System.Drawing.Size(285, 24);
+            this.xButton9.Size = new System.Drawing.Size(337, 24);
             this.xButton9.TabIndex = 17;
             this.xButton9.Text = "User2";
             this.xButton9.Theme = ManiXButton.Theme.MSOffice2010_Yellow;
@@ -297,7 +297,7 @@
             this.xButton8.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xButton8.Location = new System.Drawing.Point(12, 292);
             this.xButton8.Name = "xButton8";
-            this.xButton8.Size = new System.Drawing.Size(285, 23);
+            this.xButton8.Size = new System.Drawing.Size(337, 23);
             this.xButton8.TabIndex = 16;
             this.xButton8.Text = "User1";
             this.xButton8.Theme = ManiXButton.Theme.MSOffice2010_Yellow;
@@ -360,7 +360,7 @@
             // 
             this.textBox8.Location = new System.Drawing.Point(141, 616);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(156, 26);
+            this.textBox8.Size = new System.Drawing.Size(208, 26);
             this.textBox8.TabIndex = 5;
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -381,7 +381,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(141, 418);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(156, 26);
+            this.textBox4.Size = new System.Drawing.Size(208, 26);
             this.textBox4.TabIndex = 5;
             this.textBox4.Text = "               ";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -403,7 +403,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(141, 385);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 26);
+            this.textBox3.Size = new System.Drawing.Size(208, 26);
             this.textBox3.TabIndex = 5;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -411,7 +411,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(141, 353);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 26);
+            this.textBox2.Size = new System.Drawing.Size(208, 26);
             this.textBox2.TabIndex = 4;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
@@ -420,7 +420,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(141, 321);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 26);
+            this.textBox1.Size = new System.Drawing.Size(208, 26);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
